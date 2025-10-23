@@ -1,0 +1,28 @@
+TRAIN:
+  train_batch_size: 32
+  lr: 0.0003
+
+  valid_batch_size: 32
+
+  image_size: [224,224]
+
+  min_epochs: 20
+  max_epochs: 200
+  patience: 20
+
+  device: [0]
+
+  model_save_path: ./save_model
+  model_save_filename: medseg
+
+MODEL:
+  bert_type: ./lib/BiomedVLP-CXR-BERT-specialized
+  vision_type: ./lib/convnext-tiny-224
+  project_dim: 768
+
+DATA:
+  train_csv_path: ../data/QaTa-COV19-v2/prompt/train.csv   #QaTa-COV19-v2   MoNuSeg  breast_tumors  brain_tumors
+  train_root_path: ../data/QaTa-COV19-v2/Train
+
+  test_csv_path: ../data/QaTa-COV19-v2/prompt/test.csv
+  test_root_path: ../data/QaTa-COV19-v2/Test
